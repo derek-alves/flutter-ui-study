@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ui_study/src/ui/animation_controller/animation_controller_study.dart';
 
 import 'ui/ui.dart';
 
@@ -21,7 +20,6 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(),
           darkTheme: ThemeData.light(),
           themeMode: settingsController.themeMode,
-          initialRoute: AnimationControllerStudy.routeName,
           onGenerateRoute: (RouteSettings routeSettings) {
             return MaterialPageRoute<void>(
               settings: routeSettings,
@@ -31,8 +29,10 @@ class MyApp extends StatelessWidget {
                     return SettingsView(controller: settingsController);
                   case AnimationControllerStudy.routeName:
                     return const AnimationControllerStudy();
+                  case UseTela1Page.routeName:
+                    return const UseTela1Page();
                   default:
-                    return const SizedBox();
+                    return const UseTela1Page();
                 }
               },
             );
