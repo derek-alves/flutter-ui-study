@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           restorationScopeId: 'app',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(),
           darkTheme: ThemeData.light(),
           themeMode: settingsController.themeMode,

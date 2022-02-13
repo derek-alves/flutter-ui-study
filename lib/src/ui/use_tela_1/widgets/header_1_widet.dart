@@ -7,48 +7,43 @@ class Header1Widet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-      ),
-      height: 170,
+      padding: const EdgeInsets.all(12),
+      height: 140,
       width: double.maxFinite,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
-            "Current Balance",
-            style: TextStyle(color: Color(0xffCAC9CB), fontSize: 16),
+            "\$29.088933",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 35,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          RichText(
-            text: const TextSpan(
-              text: "29.088933",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.49,
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
               children: [
-                TextSpan(
-                  text: "  ETH",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add_circle),
+                  label: const Text("\$1,294"),
+                  style: TextButton.styleFrom(primary: Colors.blue),
                 ),
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add_circle),
+                  label: const Text(
+                    "\$1,294",
+                  ),
+                  style: TextButton.styleFrom(primary: Colors.green),
+                )
               ],
             ),
           ),
-          ElevatedButton.icon(
-            onPressed: () {},
-            icon: const Icon(Icons.add_circle),
-            label: const Text("\$1,294"),
-          )
         ],
       ),
     );

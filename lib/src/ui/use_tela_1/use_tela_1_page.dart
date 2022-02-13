@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:ui_study/src/ui/use_tela_1/widgets/coin_list.dart';
 
 import 'widgets/widgets.dart';
 
@@ -33,14 +35,44 @@ class _UseTela1PageState extends State<UseTela1Page> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark
+        .copyWith(statusBarColor: const Color(0xffF8F7FB), statusBarIconBrightness: Brightness.dark));
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF8F7FB),
-        appBar: AppBar1Widget(),
-        body: Column(
-          children: const [
-            Header1Widet(),
+        appBar: AppBar(
+          systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: Color(0xffF8F7FB),
+          ),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: const Icon(
+            Icons.alarm,
+            color: Colors.black,
+          ),
+          title: const Text(
+            'My Balance',
+            style: TextStyle(fontSize: 22, color: Colors.black, fontWeight: FontWeight.w400),
+          ),
+          actions: const [
+            Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            SizedBox(
+              width: 12,
+            )
           ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: const [
+              Header1Widet(),
+              WelcomeCard(),
+              CoinList(),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomAppBar(
           elevation: 0,
